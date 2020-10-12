@@ -6,7 +6,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 // array of questions for user
 const questions = [
     {
-        name:"project Title",
+        name:"Title",
         message:"Enter the title for your project",
         type:"input",
        
