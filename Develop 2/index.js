@@ -1,12 +1,12 @@
-const { clear } = require("console");
-const fs = require("fs")
-const inquirer = require("inquirer")
-const util = require("util")
+const fs = require("fs");
+const inquirer = require("inquirer");
+const util = require("util");
+const writeFileAsync = util.promisify(fs.writeFile);
 
 // array of questions for user
 const questions = [
     {
-        name:"Project Title",
+        name:"project Title",
         message:"Enter the title for your project",
         type:"input",
        
@@ -25,7 +25,7 @@ const questions = [
     },
 
     {
-        name:"Usage Information",
+        name:"Usage",
         message:"Enter the intended use for this application",
         type:"input",
     },
@@ -59,6 +59,7 @@ const questions = [
 // function to write README file
  async function writeToFile(fileName, data) {
     let customFile = `
+
      ${data.title}
 
      #Table of Contents
@@ -66,28 +67,28 @@ const questions = [
      - [Installation](#installation)
      - [Usage](#usage)
      - [Contribution](#contribution)
-     - [license](#license)
+     - [License](#license)
 
      ## Description
-     ${data.description}
+     ${data.Description}
 
      ##Installation
-     ${data.installation}
+     ${data.Installation}
 
      ##Usage
-     ${data.usage}
+     ${data.Usage}
 
      ##Contribution
-     ${data.contribution}
+     ${data.Contribution}
 
-     ##License
-     ${data.license}
+     ##Licenses
+     ${data.Licenses}
 
      Link to my GitHub Profile:
      [GitHub Profile](https://github.com/${data.username})
 
      My email:
-     ${data.email}
+     ${data.Email}
      `;
      try{
      await writeFileAsync(fileName, customFile);
@@ -95,7 +96,7 @@ const questions = [
      catch (error){
          throw Error(error)
      }
-     
+    
 }
 
 
@@ -106,8 +107,8 @@ async function init() {
         writeToFile("read1.md", dataSets);
         console.log("good response");
     }
-    catch (err){
-        console.log(err);
+    catch (error){
+        throw Error(error)
     }
 
 }
