@@ -62,11 +62,11 @@ const userQuestions = [
  async function writeToFile(fileName, data) {
     let customFile = `# ${data.Title}
     #Table of Contents
-    - [Description](#description)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Contribution](#contribution)
-    - [License](#license)
+    - [Description](#Description)
+    - [Installation](#Installation)
+    - [Usage](#Usage)
+    - [Contribution](#Contribution)
+    - [License](#Licenses)
   
     ## Description
     ${data.Description}
@@ -84,7 +84,7 @@ const userQuestions = [
     ${data.Licenses}
   
     Link to my GitHub Profile:
-    [GitHub Profile](https://github.com/${data.username})
+    [GitHub Profile](https://github.com/${data.Username})
   
     My email:
     ${data.Email}`;

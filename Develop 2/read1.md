@@ -1,28 +1,28 @@
-# test 123
+# Good README Generator 
     #Table of Contents
-    - [Description](#description)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Contribution](#contribution)
-    - [License](#license)
+    - [Description](#Description)
+    - [Installation](#Installation)
+    - [Usage](#Usage)
+    - [Contribution](#Contribution)
+    - [License](#Licenses)
   
     ## Description
-    test 123
+    The goal of this project is to create a command-line application that dynamically generates a professional README.md from a user's input using the Inquirer package.
   
     ##Installation
-    test 123
+    In order to run this application, a user must have node.js installed as well as the inquirer package, and util.
   
     ##Usage
-    test 123
+    This application is meant to improve effeciency by reducing time taken to write a README file.
   
     ##Contribution
-    test 123
+    I am the sole contributor.
   
     ##Licenses
     MIT
   
     Link to my GitHub Profile:
-    [GitHub Profile](https://github.com/undefined)
+    [GitHub Profile](https://github.com/sean-delaney)
   
     My email:
-    test 123
+    seandarren96@gmail.com
