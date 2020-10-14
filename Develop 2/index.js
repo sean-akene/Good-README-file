@@ -1,10 +1,11 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
+const generateMarkdown = require("./utils/generateMarkdown");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 // array of questions for user
-const questions = [
+const userQuestions = [
     {
         name:"Title",
         message:"Enter the title for your project",
@@ -41,6 +42,7 @@ const questions = [
         message:"Enter your Github username",
         type:"input",
     },
+
     {
         name:"Email",
         message:"Enter your email address",
@@ -58,38 +60,35 @@ const questions = [
 
 // function to write README file
  async function writeToFile(fileName, data) {
-    let customFile = `
+    let customFile = `# ${data.Title}
+    #Table of Contents
+    - [Description](#description)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Contribution](#contribution)
+    - [License](#license)
+  
+    ## Description
+    ${data.Description}
+  
+    ##Installation
+    ${data.Installation}
+  
+    ##Usage
+    ${data.Usage}
+  
+    ##Contribution
+    ${data.Contribution}
+  
+    ##Licenses
+    ${data.Licenses}
+  
+    Link to my GitHub Profile:
+    [GitHub Profile](https://github.com/${data.username})
+  
+    My email:
+    ${data.Email}`;
 
-     ${data.title}
-
-     #Table of Contents
-     - [Description](#description)
-     - [Installation](#installation)
-     - [Usage](#usage)
-     - [Contribution](#contribution)
-     - [License](#license)
-
-     ## Description
-     ${data.Description}
-
-     ##Installation
-     ${data.Installation}
-
-     ##Usage
-     ${data.Usage}
-
-     ##Contribution
-     ${data.Contribution}
-
-     ##Licenses
-     ${data.Licenses}
-
-     Link to my GitHub Profile:
-     [GitHub Profile](https://github.com/${data.username})
-
-     My email:
-     ${data.Email}
-     `;
      try{
      await writeFileAsync(fileName, customFile);
      }
@@ -99,11 +98,10 @@ const questions = [
     
 }
 
-
 // function to initialize program
 async function init() {
     try {
-        const dataSets = await inquirer.prompt(questions);
+        const dataSets = await inquirer.prompt(userQuestions);
         writeToFile("read1.md", dataSets);
         console.log("good response");
     }
